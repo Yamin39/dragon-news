@@ -10,14 +10,14 @@ const Home = () => {
       <Header></Header>
       <BreakingNews></BreakingNews>
       <Navbar></Navbar>
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-4 text-center">
-        <div className="border border-black">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-7 mt-16">
+        <div className="md:col-span-3 lg:col-span-2 border border-black text-center">
           <LeftSideNav></LeftSideNav>
         </div>
-        <div className="md:col-span-2 border border-black">
+        <div className="md:col-span-4 lg:col-span-3 border border-black text-center">
           <p className="text-2xl font-poppins font-bold underline">Hello world</p>
         </div>
-        <div className="border border-black">
+        <div className="hidden lg:block lg:col-span-2">
           <RightSideNav></RightSideNav>
         </div>
       </div>

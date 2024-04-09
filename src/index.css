@@ -11,6 +11,10 @@ li .active {
   border-radius: 0;
 }
 
+.home {
+    border-bottom: none !important;
+}
+
 @media screen and (max-width: 640px) {
   html {
     font-size: 3.5vw;
