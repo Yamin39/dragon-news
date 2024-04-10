@@ -20,7 +20,11 @@ const Register = () => {
 
     // create user
     createUser(email, password)
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        console.log(result.user);
+        alert("Registration successful");
+        e.target.reset();
+      })
       .catch((error) => console.log(error.message));
   };
 

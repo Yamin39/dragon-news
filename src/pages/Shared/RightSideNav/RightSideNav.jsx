@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import facebook from "../../../assets/Facebook.svg";
 import instagram from "../../../assets/Instagram.svg";
@@ -6,24 +7,30 @@ import bg from "../../../assets/bg.png";
 import qZone1 from "../../../assets/qZone1.png";
 import qZone2 from "../../../assets/qZone2.png";
 import qZone3 from "../../../assets/qZone3.png";
+import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
 
 const RightSideNav = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
-      <h4 className="font-semibold text-xl text-dark-2">Login With</h4>
-      <div className="space-y-3 mt-5">
-        <button className="flex gap-2 justify-center hover:bg-slate-100 duration-100 active:scale-95 items-center text-sm font-normal py-2 px-4 rounded-lg w-full border text-blue-500 bg-white border-blue-500">
-          <FaGoogle />
-          <p>Login with Google</p>
-        </button>
+      {!user && (
+        <>
+          <h4 className="font-semibold text-xl text-dark-2">Login With</h4>
+          <div className="space-y-3 mt-5 mb-10">
+            <button className="flex gap-2 justify-center hover:bg-slate-100 duration-100 active:scale-95 items-center text-sm font-normal py-2 px-4 rounded-lg w-full border text-blue-500 bg-white border-blue-500">
+              <FaGoogle />
+              <p>Login with Google</p>
+            </button>
 
-        <button className="flex gap-2 justify-center hover:bg-slate-100 duration-100 active:scale-95 items-center text-sm font-normal py-2 px-4 rounded-lg w-full border text-dark-2 bg-white border-dark-2">
-          <FaGithub />
-          <p>Login with Github</p>
-        </button>
-      </div>
+            <button className="flex gap-2 justify-center hover:bg-slate-100 duration-100 active:scale-95 items-center text-sm font-normal py-2 px-4 rounded-lg w-full border text-dark-2 bg-white border-dark-2">
+              <FaGithub />
+              <p>Login with Github</p>
+            </button>
+          </div>
+        </>
+      )}
 
-      <h4 className="font-semibold text-xl text-dark-2 mt-10 mb-5">Find Us On</h4>
+      <h4 className="font-semibold text-xl text-dark-2 mb-5">Find Us On</h4>
       <div className="border border-dark-6 rounded-md mb-5">
         <a href="https://www.facebook.com/" target="_blank" className="flex gap-2 items-center p-4 border-b border-b-dark-6">
           <img src={facebook} alt="facebook icon" />

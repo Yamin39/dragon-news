@@ -1,9 +1,21 @@
+import { useContext } from "react";
 import { RiMenuUnfoldLine } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import defaultProfilePic from "../../../assets/user.png";
+import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
 import RightSideNav from "../RightSideNav/RightSideNav";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result.user);
+        alert("Log Out successful");
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="navbar flex-col md:justify-center lg:justify-normal md:flex-row bg-base-100 pt-0 mt-8">
       <div className="md:navbar-start hidden lg:block"></div>
@@ -27,9 +39,18 @@ const Navbar = () => {
           <div className="w-11 rounded-full">
             <img src={defaultProfilePic} alt="user" />
           </div>
-          <Link to="/login">
-            <button className="btn h-auto px-10 py-2 bg-dark-2 hover:bg-dark-2 hover:opacity-90 text-xl font-medium text-white rounded-none">Login</button>
-          </Link>
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="btn h-auto px-10 py-2 bg-dark-2 hover:bg-dark-2 hover:opacity-90 text-xl font-medium text-white rounded-none"
+            >
+              Log Out
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="btn h-auto px-10 py-2 bg-dark-2 hover:bg-dark-2 hover:opacity-90 text-xl font-medium text-white rounded-none">Login</button>
+            </Link>
+          )}
         </div>
 
         <div className="lg:hidden">
