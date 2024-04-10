@@ -29,7 +29,7 @@ const NewsCard = ({ aNews }) => {
           ) : (
             <>
               {details.slice(0, 200)}...
-              <Link to={`/news/${_id}`} className="block font-semibold text-[#FF8C47]">
+              <Link to={`/newsDetails/${_id}`} className="block font-semibold text-[#FF8C47]">
                 Read More
               </Link>
             </>
@@ -49,11 +49,11 @@ const NewsCard = ({ aNews }) => {
             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked />
           </div>
-          <p className="text-dark-3 font-medium">{rating.number}</p>
+          <p className="text-dark-3 font-medium">{rating.number || 0}</p>
         </div>
         <div className="flex items-center gap-3 text-dark-3 font-medium">
           <IoEye className="text-2xl" />
-          <p>{total_view}</p>
+          <p>{total_view || 0}</p>
         </div>
       </div>
     </div>

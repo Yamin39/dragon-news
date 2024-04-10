@@ -17,7 +17,11 @@ const Home = () => {
           <div className="md:hidden">
             <div className="w-fit mx-auto">
               <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn px-6 py-2 bg-dark-pink text-xl font-medium text-white rounded-none">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn px-6 py-2 bg-dark-pink hover:bg-dark-pink hover:opacity-90 text-xl font-medium text-white rounded-none"
+                >
                   Select News Category
                 </div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">

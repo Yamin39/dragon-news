@@ -7,21 +7,26 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loader, setLoader] = useState(true);
 
   const createUser = (email, password) => {
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const logIn = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
+    setLoader(true);
     return signOut(auth);
   };
 
   const authInfo = {
     user,
+    loader,
     createUser,
     logIn,
     logOut,
@@ -32,14 +37,16 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         console.log("(if) current user is: ", currentUser);
         setUser(currentUser);
+        setLoader(false);
       } else {
         console.log("(else) current user is: ", currentUser);
-        setUser(null)
+        setUser(null);
+        setLoader(false);
       }
       console.log(user);
     });
     return () => unSubscribe();
-  }, []);
+  }, [user]);
 
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
