@@ -1,9 +1,13 @@
+import Categories from "./Categories";
+
 const LeftSideNav = () => {
-    return (
-        <div>
-            Left Side Nav
-        </div>
-    );
+  return (
+    <div>
+      <div>
+        <Categories></Categories>
+      </div>
+    </div>
+  );
 };
 
 export default LeftSideNav;
