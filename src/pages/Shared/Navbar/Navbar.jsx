@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className="w-11 rounded-full">
             <img src={defaultProfilePic} alt="user" />
           </div>
-          <Link>
+          <Link to="/login">
             <button className="btn h-auto px-10 py-2 bg-dark-2 hover:bg-dark-2 hover:opacity-90 text-xl font-medium text-white rounded-none">Login</button>
           </Link>
         </div>
