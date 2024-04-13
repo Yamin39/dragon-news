@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import Navbar from "../Shared/Navbar/Navbar";
+import data from "./underlineAnimation.json";
+import("@dotlottie/player-component");
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
@@ -36,7 +38,12 @@ const Login = () => {
       <div className="flex flex-col justify-center items-center min-h-[70vh] mt-8">
         <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-50 text-gray-800">
           <div className="mb-8 text-center">
-            <h1 className="my-3 text-4xl font-bold">Login</h1>
+            <div className="my-3 text-4xl font-bold relative flex flex-col items-center">
+              <span className="z-10">Login</span>
+              <div className="absolute bottom-0">
+                <dotlottie-player src={JSON.stringify(data)} autoplay style={{ width: "200px", height: "20px" }} />
+              </div>
+            </div>
             <p className="text-sm text-gray-600">Login to access your account</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
